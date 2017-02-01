@@ -2,7 +2,7 @@
  * Created by andrej on 1/23/17.
  */
 
-// var express = require('express');
+var express = require('express');
 // var app = express();
 
 // app.set('port', (process.env.PORT || 5000));
@@ -11,16 +11,26 @@
 // var https = require('https').Server(app);
 // var io = require('socket.io')(https);
 
-var app = require('express')();
-var server = require('https').Server(app);
-var io = require('socket.io')(server);
 
-server.listen(3000);
+
+
+// var app    = require('express')();
+// var server = app.listen(app.get('port'), function () {
+//     console.log('server listening on port ' + server.address().port);
+// });
+// var io = require('socket.io')(server);
+
+
+var app = express();
+var http = require( "https" ).Server( app );
+var io = require( "socket.io" )( http );
+http.listen(8080, "127.0.0.1");
 
 
 // var app = require('express')();
 // var http = require('http').Server(app);
 // var io = require('socket.io')(http);
+// var PORT = process.env.PORT || 8080;
 // app.set('port', (process.env.PORT || 3000));
 
 app.get('/', function(req, res){
@@ -126,7 +136,7 @@ io.on('connection', function(socket){
 
 });
 
-// https.listen(5000, function(){
+// http.listen(PORT, function(){
 //     console.log('listening on *:3000');
 // });
 
