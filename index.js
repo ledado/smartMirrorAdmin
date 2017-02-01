@@ -11,10 +11,11 @@
 // var https = require('https').Server(app);
 // var io = require('socket.io')(https);
 
-var app = require('express').createServer();
-var io = require('socket.io')(app);
+var app = require('express')();
+var server = require('https').Server(app);
+var io = require('socket.io')(server);
 
-app.listen(3000);
+server.listen(3000);
 
 
 // var app = require('express')();
