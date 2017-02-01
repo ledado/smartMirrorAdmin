@@ -1,12 +1,18 @@
 /**
  * Created by andrej on 1/23/17.
  */
-var app = require('express')();
+
+var express = require('express');
+var app = express();
+
+app.set('port', (process.env.PORT || 5000));
+
+
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 
 app.get('/', function(req, res){
-    res.sendFile(__dirname + '/index.html');
+    res.render(__dirname + '/index.html');
 });
 var room = {
     id : 0

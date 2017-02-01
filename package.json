@@ -13,6 +13,10 @@
     "express": "^4.10.2",
     "socket.io": "^1.7.2"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ledado/smartMirrorAdmin"
+  },
   "engines": {
     "node": "5.9.1"
   }
