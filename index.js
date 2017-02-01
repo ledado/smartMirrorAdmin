@@ -8,8 +8,8 @@ var app = express();
 app.set('port', (process.env.PORT || 5000));
 
 
-var http = require('http').Server(app);
-var io = require('socket.io')(http);
+var https = require('https').Server(app);
+var io = require('socket.io')(https);
 
 app.get('/', function(req, res){
     res.sendFile(__dirname + '/index.html');
