@@ -2,14 +2,20 @@
  * Created by andrej on 1/23/17.
  */
 
-var express = require('express');
-var app = express();
+// var express = require('express');
+// var app = express();
 
 // app.set('port', (process.env.PORT || 5000));
 
 
-var https = require('https').Server(app);
-var io = require('socket.io')(https);
+// var https = require('https').Server(app);
+// var io = require('socket.io')(https);
+
+var app = require('express').createServer();
+var io = require('socket.io')(app);
+
+app.listen(3000);
+
 
 // var app = require('express')();
 // var http = require('http').Server(app);
@@ -119,9 +125,9 @@ io.on('connection', function(socket){
 
 });
 
-https.listen(5000, function(){
-    console.log('listening on *:3000');
-});
+// https.listen(5000, function(){
+//     console.log('listening on *:3000');
+// });
 
 // app.listen(app.get('port'), function() {
 //     console.log('Node app is running on port', app.get('port'));
