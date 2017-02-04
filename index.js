@@ -133,7 +133,13 @@ io.on('connection', function(socket){
 
         io.to(room.id).emit('setDateFormatType', obj);
     });
+    socket.on('setCityId', function(id){
+        var obj ={
+            id: id
+        };
 
+        io.to(room.id).emit('setCityId', obj);
+    });
 });
 
 http.listen(PORT, function(){
